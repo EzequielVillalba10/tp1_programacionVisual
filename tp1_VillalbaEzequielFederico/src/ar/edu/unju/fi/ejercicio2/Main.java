@@ -22,7 +22,7 @@ public class Main {
 		numeroTelefono=388192813;
 		calculoCoseno=0.5;
 		
-		//Mostrando los valores por consola
+		//Mostrando los valores por consola...
 		
 		System.out.println("Nombre de un Pais: "+nombrePais);
 		System.out.println("Edad: "+edad);
