@@ -9,14 +9,17 @@ public class Persona {
 	private LocalDate fechaDeNacimiento;
 	private String provincia;
 	
+	public Persona() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Persona(int dni, String nombre, LocalDate fechaDeNacimiento, String provincia) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.fechaDeNacimiento = fechaDeNacimiento;
-		this.provincia = provincia;
+		this.provincia = provincia="jujuy";	
 	}
-
+	
 
 	public int getDni() {
 		return dni;
