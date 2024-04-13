@@ -5,8 +5,8 @@ public class Empleado {
 	String nombre;
 	private int legajo;
 	private double salario;
-	private final double salarioMinimo = 210000.00;
-	private final double aumentoPorMeritos = 20000.00;
+	private final double salarioMinimo = 210000.000;
+	private final double aumentoPorMeritos = 200000.000;
 	public Empleado(String nombre, int legajo, double salario) {
 		this.nombre = nombre;
 		this.legajo = legajo;
@@ -42,13 +42,13 @@ public class Empleado {
 	
 	
 	public void darAumento() {
-		salario = salario + aumentoPorMeritos;
+		salario += aumentoPorMeritos;
 	}
 	
 	public void mostrarDatos() {
 		System.out.println("Nombre del empleado: "+nombre);
 		System.out.println("Legajo: "+legajo);
-		System.out.println("Salario $: "+salario);
+		System.out.println("Salario : "+"$"+salario);
 		
 	}
 	
