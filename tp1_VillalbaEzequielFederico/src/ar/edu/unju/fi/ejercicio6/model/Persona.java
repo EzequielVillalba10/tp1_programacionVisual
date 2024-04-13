@@ -1,25 +1,27 @@
 package ar.edu.unju.fi.ejercicio6.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Persona {
 
 	private int dni;
 	private String nombre;
-	private LocalDate fechaDeNacimiento;
+	private int fechaDeNacimiento;
 	private String provincia;
 	
 	public Persona() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Persona(int dni, String nombre, LocalDate fechaDeNacimiento, String provincia) {
+	public Persona(int dni, String nombre, int fechaDeNacimiento, String provincia) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.fechaDeNacimiento = fechaDeNacimiento;
-		this.provincia = provincia="jujuy";	
+		this.provincia = provincia;	
 	}
 	
+
 
 	public int getDni() {
 		return dni;
@@ -41,12 +43,12 @@ public class Persona {
 	}
 
 
-	public LocalDate getFechaDeNacimiento() {
+	public int getFechaDeNacimiento() {
 		return fechaDeNacimiento;
 	}
 
 
-	public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
+	public void setFechaDeNacimiento(int fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
 
@@ -64,9 +66,9 @@ public class Persona {
 	
 
 	public int calcularLaEdad() {
-		LocalDate ahora = LocalDate.now();
-		return ahora.getYear() - fechaDeNacimiento.getYear();
-		
+		int ahora = 24;
+		int esMayorDeEdad = ahora - fechaDeNacimiento;
+		return esMayorDeEdad;
 	}
 	
 	public boolean esMayorDeEdad()
@@ -74,7 +76,7 @@ public class Persona {
 		return calcularLaEdad()>=18;
 	}
 	
-	public void mostrarDatos() 
+	public void mostrarDatos(int dni, String nombre) 
 	{
 		System.out.println("DNI: "+ dni);
 		System.out.println("Nombre: "+nombre);
