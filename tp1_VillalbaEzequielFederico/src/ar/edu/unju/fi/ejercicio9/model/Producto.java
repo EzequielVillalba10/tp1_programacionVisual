@@ -8,11 +8,8 @@ public class Producto {
 	private int descuento;
 	
 	
-	public Producto(String nombre, int codigo, double precio, int descuento) {
-		this.nombre = nombre;
-		this.codigo = codigo;
-		this.precio = precio;
-		this.descuento = descuento;
+	public Producto() {
+		
 	}
 
 
@@ -55,6 +52,17 @@ public class Producto {
 		this.descuento = descuento;
 	}
 	
+	public double calcularDescuento() {
+		if (descuento>0)
+		{
+			return precio -(precio*descuento/100.0);
+		}
+		else
+		{
+			return precio;
+		}
+			
+	}
 	
 	
 	
