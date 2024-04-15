@@ -48,7 +48,7 @@ public class Pizza {
 	}
 
 
-	public boolean isIngredientesEspeciales() {
+	public boolean IngredientesEspeciales(boolean opcion) {
 		return ingredientesEspeciales;
 	}
 
@@ -121,6 +121,12 @@ public class Pizza {
 	}
 
 
-
+	public void mostrarDatos()
+	{
+		System.out.println("/////////////PIZZA///////////////////////");
+		System.out.println("Diametro: "+diametro);
+		System.out.println("Precio: $"+precio);
+		System.out.println("Area: "+area+" cm2");
+	}
 	
 }
