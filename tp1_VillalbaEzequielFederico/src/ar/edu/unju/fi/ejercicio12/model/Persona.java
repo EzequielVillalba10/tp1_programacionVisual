@@ -6,10 +6,43 @@ public class Persona {
 	private String nombre;
 	private Calendar fechaNacimiento;
 	
-	public Persona() {
+	
+	
+	
+	
+	
+
+	public Persona(String nombre, Calendar fechaNacimiento) {
+		this.nombre = nombre;
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	
 	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public Calendar getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+
+
+	public void setFechaNacimiento(Calendar fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+
+
+
 	public int calcularLaEdad()
 	{
 		Calendar hoy = Calendar.getInstance(); // obtener la fecha de hoy
@@ -79,7 +112,7 @@ public class Persona {
 		return signo;
 	}
 	
-	public String obtenerEstacionNacimiento() {
+	public String obtenerEstacion() {
         int mes = fechaNacimiento.get(Calendar.MONTH);
         String estacion = "nada";
 
@@ -112,8 +145,6 @@ public class Persona {
         return estacion;
     }
 	
-	public void mostrarDatos()
-	{
-		
-	}
+	
+	
 }
