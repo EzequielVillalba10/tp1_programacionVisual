@@ -5,9 +5,8 @@ import java.util.Calendar;
 public class Persona {
 	private String nombre;
 	private Calendar fechaNacimiento;
-	public Persona(String nombre, Calendar fechaNacimiento) {
-		this.nombre = nombre;
-		this.fechaNacimiento = fechaNacimiento;
+	
+	public Persona() {
 	}
 	
 	
