@@ -20,6 +20,7 @@ public class Main {
 			System.out.println(array[j]);
 			j++;
 		}
+		System.out.println("El tamaño del array es: "+array.length);
 	}
 
 }
