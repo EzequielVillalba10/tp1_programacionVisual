@@ -34,11 +34,11 @@ public class Main {
 		Date fechaNacimiento = calendar.getTime();
 		String fecha = sdf.format(fechaNacimiento);
 		Persona persona = new Persona(nombre,calendar);
-		
+		System.out.println(fechaNacimiento);
 		// MOSTRANDO LOS DATOS
 		System.out.println("Nombre: "+persona.getNombre());
 		System.out.println("Fecha de Nacimiento: "+fecha);
-		System.out.println("Edad: "+persona.calcularLaEdad()+" años");
+	//	System.out.println("Edad: "+persona.calcularLaEdad()+" años");
 		//System.out.println("Signo del zodiaco: "+persona.obtenerSigno());
 		//System.out.println("Estacion: "+persona.obtenerEstacion());
 		
