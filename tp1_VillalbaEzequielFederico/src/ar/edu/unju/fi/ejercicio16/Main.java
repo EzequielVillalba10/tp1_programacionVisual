@@ -18,6 +18,7 @@ public class Main {
 		while(j<array.length)
 		{
 			System.out.println(array[j]);
+			j++;
 		}
 	}
 
