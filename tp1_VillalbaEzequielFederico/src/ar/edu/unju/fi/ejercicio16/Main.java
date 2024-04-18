@@ -13,6 +13,12 @@ public class Main {
 			System.out.println("Ingrese nombre: ");
 			array[i] = scanner.next();
 		}
+		
+		int j=0;
+		while(j<array.length)
+		{
+			System.out.println(array[j]);
+		}
 	}
 
 }
