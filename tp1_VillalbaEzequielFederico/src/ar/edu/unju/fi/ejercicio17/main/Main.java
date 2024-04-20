@@ -46,9 +46,9 @@ public class Main {
 				
 			case 5:eliminarJugador();break;
 				
-			case 6:break;
+			case 6:mostrarCantidad();break;
 				
-			case 7:break;
+			case 7:cantidadNacionalidad();break;
 				
 			case 8: System.out.println("Saliendo del programa");
 				break;
@@ -112,6 +112,7 @@ public class Main {
 	
 	
 	public static void mostrarJugadores() {
+		
 		System.out.println("Ingrese el apellido del jugador a buscar: ");
 		String apellido = sc.next();
 		System.out.println("Ingrese el nombre del jugador a buscar: ");
@@ -130,6 +131,8 @@ public class Main {
 				}
 			}
 		}
+		
+		
 	}
 	
 	/**
@@ -276,5 +279,38 @@ public class Main {
 			System.out.println("Lista de jugadores vacia!!!");
 		}
 	}
+	
+	/**
+	 * Mostrar la cantidad de jugadores que tiene la arraylist
+	 */
+	
+	public static void mostrarCantidad() {
+		if (!jugadores.isEmpty())
+		{
+		System.out.println("Cantidad de elementos: "+jugadores.size());
+		}
+		else
+		{
+			System.out.println("No hay ningun jugador registrado en la lista");
+		}
+	}
+	
+	public static void cantidadNacionalidad() {
+		int acumulador=0;
+		System.out.println("Ingrese nacionalidad: ");
+		String nacionalidad = sc.next();
+		Iterator<Jugador> iterator = jugadores.iterator(); 
+		if(!jugadores.isEmpty())
+		{
+		while (iterator.hasNext()) {
+			Jugador jugadores = iterator.next();  
+			if (jugadores.getNacionalidad().equals(nacionalidad))
+			{
+				acumulador=acumulador+1;
+			}
+		}
+		System.out.println("La cantidad de jugadores con esa Nacionalidad es de: "+acumulador);
+		}
 		
+	}
 	}
