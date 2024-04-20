@@ -4,17 +4,18 @@ import java.util.ArrayList;
 
 import ar.edu.unju.fi.ejercicio18.model.DestinoTuristico;
 import ar.edu.unju.fi.ejercicio18.model.Pais;
+import ar.edu.unju.fi.model.Chofer;
 
 import java.util.Scanner;
 
 public class Main {
 	private static Scanner sc;
-	
+	private static ArrayList<Pais> paises;
+	private static ArrayList<DestinoTuristico> destinos ;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		ArrayList<Pais> paises = new ArrayList<>();
-		ArrayList<DestinoTuristico> destinos = new ArrayList<>();
+	
 		sc = new Scanner(System.in);
 		
 		int opcion=0;
@@ -33,7 +34,7 @@ public class Main {
 			opcion = sc.nextInt();
 			
 			switch(opcion) {
-			case 1:
+			case 1:altaDestinoTuristico();break;
 				
 			case 2:
 				
@@ -63,4 +64,42 @@ public class Main {
 		}while(opcion!=9);
 	}
 
+	/**
+	 * precargar paises
+	 */
+	public static void precargarPaises(){
+		if (paises == null)
+		{
+			paises = new ArrayList<>();
+		}
+		paises.add(new Pais("AAA111","Argentina"));
+		paises.add(new Pais("BBB222","Brasil"));
+		paises.add(new Pais("CCC333","Colombia"));
+		paises.add(new Pais("DDD444","Dinamarca"));
+		paises.add(new Pais("EEE555","Estados Unidos"));
+		paises.add(new Pais("FFF666","Francia"));
+		
+	}
+	
+	
+	public static void altaDestinoTuristico() {
+		if (destinos == null)
+		{
+			destinos = new ArrayList<>();
+		}
+		System.out.println("Ingrese el codigo del destino turistico: ");
+		String codigoDestino = sc.next();
+		sc.nextLine();
+		
+		System.out.println("Ingrese el nombre del destino turistico: ");
+		String nombreDestino = sc.next();
+		
+		System.out.println("Ingrese el precio del destino turistico: ");
+		double precioDestino = sc.nextDouble();
+		
+		System.out.println("Ingrese la cantidad de dias: ");
+		int dias = sc.nextInt();
+		
+		destinos.add(codigoDestino,nombreDestino,precioDestino,"acavapais",dias)
+	}
 }
