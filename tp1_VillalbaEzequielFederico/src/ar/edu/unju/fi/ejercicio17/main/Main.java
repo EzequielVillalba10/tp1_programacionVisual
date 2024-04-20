@@ -119,7 +119,7 @@ public class Main {
 		String nombre = sc.next();
 		
 		Iterator <Jugador> iterator = jugadores.iterator();
-		if (!jugadores.isEmpty())
+		if (jugadores.size()!=0)
 		{
 			while(iterator.hasNext())
 			{
@@ -130,6 +130,10 @@ public class Main {
 					mostrarDatosJugador(jugador);
 				}
 			}
+		}
+		else
+		{
+			System.out.println("LA LISTA ESTA VACIA");
 		}
 		
 		
