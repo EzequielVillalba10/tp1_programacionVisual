@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import ar.edu.unju.fi.ejercicio18.model.DestinoTuristico;
 import ar.edu.unju.fi.ejercicio18.model.Pais;
-import ar.edu.unju.fi.model.Chofer;
+
 
 import java.util.Scanner;
 
@@ -83,23 +83,50 @@ public class Main {
 	
 	
 	public static void altaDestinoTuristico() {
+		DestinoTuristico destinoTuristico = new DestinoTuristico();
 		if (destinos == null)
 		{
 			destinos = new ArrayList<>();
 		}
 		System.out.println("Ingrese el codigo del destino turistico: ");
-		String codigoDestino = sc.next();
+		destinoTuristico.setCantidadDias(sc.nextInt());
 		sc.nextLine();
 		
 		System.out.println("Ingrese el nombre del destino turistico: ");
-		String nombreDestino = sc.next();
+		destinoTuristico.setNombre(sc.next());
 		
 		System.out.println("Ingrese el precio del destino turistico: ");
-		double precioDestino = sc.nextDouble();
+		destinoTuristico.setPrecio(sc.nextDouble());
 		
 		System.out.println("Ingrese la cantidad de dias: ");
-		int dias = sc.nextInt();
+		destinoTuristico.setCantidadDias(sc.nextInt());
 		
-		destinos.add(codigoDestino,nombreDestino,precioDestino,"acavapais",dias)
+		System.out.println("Ingrese codigo de Pais: "); // necesitamos un objeto, para eso necesitamos el codigo del chofer para buscar en el arraylist para obtener el objeto!!!
+		String codigoPais = sc.next();
+		Pais paises = buscarPais(codigoPais);
+		if(paises == null)
+		{
+			System.out.println("El pais no existe");
+		}
+		else
+		{
+			destinoTuristico.setPais(paises);
+			destinos.add(destinoTuristico);
+			System.out.println("Se agrego el objeto pais....");
+		}
 	}
+	
+	
+	public static Pais buscarPais(String codigoPais) {
+		Pais paisEncontrado = null;
+		for (Pais pais: paises) {
+			if (pais.getCodigo()==codigoPais)
+			{
+				paisEncontrado=pais;
+				break;
+			}
+		}
+		return paisEncontrado;
+	}
+	
 }

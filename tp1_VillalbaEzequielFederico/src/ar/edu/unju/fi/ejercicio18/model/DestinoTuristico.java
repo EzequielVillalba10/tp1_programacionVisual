@@ -7,13 +7,12 @@ public class DestinoTuristico {
 	private Pais pais;
 	private int cantidadDias;
 	
-	public DestinoTuristico(String codigo, String nombre, double precio, Pais pais, int cantidadDias) {
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.precio = precio;
-		this.pais = pais;
-		this.cantidadDias = cantidadDias;
+
+	
+
+	public DestinoTuristico() {
 	}
+
 
 	public String getCodigo() {
 		return codigo;
