@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import ar.edu.unju.fi.ejercicio18.model.DestinoTuristico;
 import ar.edu.unju.fi.ejercicio18.model.Pais;
-
+import ar.edu.unju.fi.model.Chofer;
+import ar.edu.unju.fi.model.Taxi;
 
 import java.util.Scanner;
 
@@ -19,6 +20,7 @@ public class Main {
 		sc = new Scanner(System.in);
 		
 		int opcion=0;
+		precargarPaises();
 		do {
 			System.out.println("=========================");
 			System.out.println("1) Alta de destino turistico");
@@ -36,11 +38,11 @@ public class Main {
 			switch(opcion) {
 			case 1:altaDestinoTuristico();break;
 				
-			case 2:
+			case 2:mostrarDestinosTuristicos();break;
 				
-			case 3:
+			case 3:modificarPaisDeDestino();break;
 				
-			case 4:
+			case 4:limpiarArrayListDeDestinoTuristico();break;
 			
 			case 5:
 				
@@ -89,8 +91,7 @@ public class Main {
 			destinos = new ArrayList<>();
 		}
 		System.out.println("Ingrese el codigo del destino turistico: ");
-		destinoTuristico.setCantidadDias(sc.nextInt());
-		sc.nextLine();
+		destinoTuristico.setCodigo(sc.next());
 		
 		System.out.println("Ingrese el nombre del destino turistico: ");
 		destinoTuristico.setNombre(sc.next());
@@ -124,9 +125,48 @@ public class Main {
 			{
 				paisEncontrado=pais;
 				break;
+				
 			}
 		}
 		return paisEncontrado;
 	}
 	
+	
+	public static void mostrarDestinosTuristicos()
+	{
+		System.out.println("-------------Lita de destinos-----------");
+		destinos.forEach(d->System.out.println(d));
+	}
+	
+	
+	public static void modificarPaisDeDestino()
+	{
+		System.out.println("=========MODIFICAR PAIS DE DESTINO============");
+		System.out.println("Ingrese codigo del Destino Turistico: ");
+		String codigo = sc.next();
+		
+		for(DestinoTuristico destino: destinos)
+		{
+			if(destino.getCodigo().equals(codigo))
+			{
+				System.out.println("Ingrese nuevo nombre de pais para el destino turistico: ");
+				String nombreNuevo = sc.next();
+				DestinoTuristico destinoturistico = buscarDestino(nombreNuevo);
+				destino.setNombre(nombreNuevo);
+				System.out.println("Se modifico el nombre del destino");
+			}
+		}
+	}
+	
+	public static DestinoTuristico buscarDestino(String codigo) {
+		DestinoTuristico destinoEncontrado = null;
+		for (DestinoTuristico destino: destinos) {
+			if (destino.getNombre()==codigo)
+			{
+				destinoEncontrado=destino;
+				break;
+			}
+		}
+		return destinoEncontrado;
+	}
 }
