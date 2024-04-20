@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.ejercicio17.main;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import ar.edu.unju.fi.ejercicio17.model.Jugador;
@@ -36,7 +37,7 @@ public class Main {
 			{
 			case 1: precargarJugador();break;
 			
-			case 2:break;
+			case 2: mostrarJugadores();break;
 			
 			case 3:break;
 				
@@ -63,6 +64,10 @@ public class Main {
 	public static void precargarJugador() {
 		int opcion1=0;
 		String posicion="ninguna";
+		if (jugadores == null)
+		{
+			jugadores = new ArrayList<>();
+		}
 		System.out.println("Ingrese nombre de jugador: ");
 		String nombre = sc.next();
 		System.out.println("Ingrese apellido de jugador: ");
@@ -98,6 +103,41 @@ public class Main {
 		case 4: posicion = "Arquero"; break;
 		}
 		jugadores.add(new Jugador(nombre,apellido,nacionalidad,estatura,peso,posicion));
+	}
+	
+	/**
+	 * Etructura para mostrar los datos de los jugadores en el arrayList
+	 */
+	
+	
+	public static void mostrarJugadores() {
+		System.out.println("Ingrese el apellido del jugador a buscar: ");
+		String apellido = sc.next();
+		System.out.println("Ingrese el nombre del jugador a buscar: ");
+		String nombre = sc.next();
+		
+		Iterator <Jugador> iterator = jugadores.iterator();
+		if (!jugadores.isEmpty())
+		{
+			while(iterator.hasNext())
+			{
+				Jugador jugador = iterator.next();
+				
+				if (jugador.getApellido().equals(apellido) && jugador.getNombre().equals(nombre))
+				{
+					mostrarDatosJugador(jugador);
+				}
+			}
+		}
+	}
+	
+	public static void mostrarDatosJugador(Jugador jugadores) {
+		System.out.println("Nombre del jugador: "+jugadores.getApellido());
+		System.out.println("Apellido del jugador: "+jugadores.getNombre());
+		System.out.println("Nacionalidad: "+jugadores.getNacionalidad());
+		System.out.println("Estatura: "+jugadores.getEstatura()+"cm.");
+		System.out.println("Peso: "+jugadores.getPeso()+" kg.");
+		System.out.println("Posicion: "+jugadores.getPosicion());
 	}
 
 }
