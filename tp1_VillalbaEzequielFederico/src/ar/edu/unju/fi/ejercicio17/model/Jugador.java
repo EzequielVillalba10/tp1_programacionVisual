@@ -80,6 +80,13 @@ public class Jugador {
 	public void setPosicion(String posicion) {
 		this.posicion = posicion;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Jugador [nombre=" + nombre + ", apellido=" + apellido + ", Nacionalidad=" + Nacionalidad + ", estatura="
+				+ estatura + ", peso=" + peso + ", posicion=" + posicion + "]";
+	}
 	
 	
 	

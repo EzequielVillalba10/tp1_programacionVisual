@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.ejercicio17.main;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -22,8 +23,8 @@ public class Main {
 			System.out.println("==================================");
 			System.out.println("1 - Alta de Jugador");
 			System.out.println("2 - Mostrar los datos del jugador ");
-			System.out.println("3 - Modificar los datos del jugador");
-			System.out.println("4 - Mostrar todos los jugadores ordenado por apellido");
+			System.out.println("3 - Mostrar todos los jugadores ordenado por apellido");
+			System.out.println("4 - Modificar los datos del jugador");
 			System.out.println("5 - Eliminar un jugador");
 			System.out.println("6 - Mostrar la cantidad de jugadores que tiene la arrayList");
 			System.out.println("7 - Mostrar la cantidad de jugadores que pertenecen a una Nacionalidad");
@@ -39,9 +40,9 @@ public class Main {
 			
 			case 2: mostrarJugadores();break;
 			
-			case 3:break;
+			case 3:mostrarJugadoresPorApellido();break;
 				
-			case 4:break;
+			case 4:modificarJugador();break;
 				
 			case 5:break;
 				
@@ -131,13 +132,114 @@ public class Main {
 		}
 	}
 	
+	/**
+	 * va a motrar los datos del jugador pasado por parametro
+	 * @param jugadores
+	 */
 	public static void mostrarDatosJugador(Jugador jugadores) {
+		System.out.println("===========DATOS DEL JUGADOR=================");
 		System.out.println("Nombre del jugador: "+jugadores.getApellido());
 		System.out.println("Apellido del jugador: "+jugadores.getNombre());
 		System.out.println("Nacionalidad: "+jugadores.getNacionalidad());
 		System.out.println("Estatura: "+jugadores.getEstatura()+"cm.");
 		System.out.println("Peso: "+jugadores.getPeso()+" kg.");
 		System.out.println("Posicion: "+jugadores.getPosicion());
+		System.out.println("=============================================");
 	}
 
+	/**
+	 * mostrara los jugadores ordenados por apellido
+	 * 
+	 */
+	public static void mostrarJugadoresPorApellido(){
+		
+		jugadores.sort(Comparator.comparing(Jugador::getApellido));
+		jugadores.forEach(jug->System.out.println(jug.toString()));
+		
+	}
+	
+	/**
+	 * Pedira datos para modificar el jugador
+	 */
+	public static void modificarJugador()
+	{
+		System.out.println("---------------Modificar el jugador------------------");
+		System.out.println("Ingrese Apellido del jugador: ");
+		String apellido = sc.next();
+		System.out.println("Ingrese Nombre del jugador:");
+		String nombre = sc.next();
+		Iterator <Jugador> iterator = jugadores.iterator();
+		if (!jugadores.isEmpty())
+		{
+			while(iterator.hasNext())
+			{
+				Jugador jugador = iterator.next();
+				
+				if (jugador.getApellido().equals(apellido) && jugador.getNombre().equals(nombre))
+				{
+					editarJugador(jugador);
+				}
+			}
+		}
+	}
+	
+	public static void editarJugador(Jugador jugadores) {
+		int opcion=0, opcion2=0;
+		String posicion="NINGUNA";
+		do {
+			System.out.println("1)Editar Nacionalidad: ");
+			System.out.println("2)Editar Estatura");
+			System.out.println("3)Editar Editar Peso");
+			System.out.println("4) Editar posicion");
+			System.out.println("5)Salir");
+			opcion=sc.nextInt();
+			
+			switch (opcion)
+			{
+			case 1: System.out.println("Ingrese nueva nacionalidad: ");
+			String nacionalidad=sc.next();
+			jugadores.setNacionalidad(nacionalidad);
+			break;
+			case 2: System.out.println("Ingrese nueva estatura: ");
+			double estatura = sc.nextDouble();
+			jugadores.setEstatura(estatura);
+			break;
+			case 3: System.out.println("Ingrese nuevo peso: ");
+			double peso = sc.nextDouble();
+			jugadores.setPeso(peso);
+			case 4: System.out.println("Ingrese nueva posicion");
+			System.out.println("1)Delantero");
+			System.out.println("2)Medio");
+			System.out.println("3)Defensor");
+			System.out.println("4)Arquero");
+			opcion2 = sc.nextInt();
+			if (opcion2 == 1)
+			{
+				 posicion = "Delantero";
+			}
+			if (opcion2 == 2)
+			{
+				 posicion = "Medio";
+			}
+			if (opcion2 == 3)
+			{
+				 posicion = "Defensor";
+			}
+			if (opcion2 == 4)
+			{
+				 posicion = "Arquero";
+			}
+			jugadores.setPosicion(posicion);
+			
+			break;
+			
+			
+			}// cierre del switch
+		}while(opcion!=5); // cierre del bucle 
+	
+		
+
+
 }
+		
+	}
