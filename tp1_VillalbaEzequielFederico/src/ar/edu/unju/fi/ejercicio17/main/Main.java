@@ -44,7 +44,7 @@ public class Main {
 				
 			case 4:modificarJugador();break;
 				
-			case 5:break;
+			case 5:eliminarJugador();break;
 				
 			case 6:break;
 				
@@ -182,7 +182,13 @@ public class Main {
 			}
 		}
 	}
-	
+	/**
+	 * Procedimiento en la que se muestra una lista
+	 * para elegir una opcion en la cual
+	 * el usuario indique que dato quiere modificar
+	 * del jugador
+	 * @param jugadores
+	 */
 	public static void editarJugador(Jugador jugadores) {
 		int opcion=0, opcion2=0;
 		String posicion="NINGUNA";
@@ -241,5 +247,34 @@ public class Main {
 
 
 }
+	
+	
+	/**
+	 * Elimina un objeto Jugador
+	 * de la lista jugadores
+	 */
+	public static void eliminarJugador() {
+		
+		System.out.println("Ingrese apellido del jugador: ");
+		String apellido = sc.next();
+		System.out.println("Ingrese nombre del jugador: ");
+		String nombre = sc.next();
+		Iterator<Jugador> iterator = jugadores.iterator(); 
+		if(!jugadores.isEmpty())
+		{
+		while (iterator.hasNext()) {
+			Jugador jugadores = iterator.next();  
+			if (jugadores.getApellido().equals(apellido) && jugadores.getNombre().equals(nombre))
+			{
+				iterator.remove(); // 
+				System.out.println("Se elimino el jugador: "+apellido+ " "+nombre);
+			}
+		}
+		}
+		else
+		{
+			System.out.println("Lista de jugadores vacia!!!");
+		}
+	}
 		
 	}
