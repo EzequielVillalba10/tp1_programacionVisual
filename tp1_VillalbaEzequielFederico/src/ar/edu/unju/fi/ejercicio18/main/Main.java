@@ -22,6 +22,7 @@ public class Main {
 		
 		int opcion=0;
 		precargarPaises();
+		destinos = new ArrayList<>();
 		do {
 			System.out.println("=========================");
 			System.out.println("1) Alta de destino turistico");
@@ -88,10 +89,7 @@ public class Main {
 	
 	public static void altaDestinoTuristico() {
 		DestinoTuristico destinoTuristico = new DestinoTuristico();
-		if (destinos == null)
-		{
-			destinos = new ArrayList<>();
-		}
+		
 		System.out.println("Ingrese el codigo del destino turistico: ");
 		destinoTuristico.setCodigo(sc.next());
 		
@@ -106,14 +104,14 @@ public class Main {
 		
 		System.out.println("Ingrese codigo de Pais: "); // necesitamos un objeto, para eso necesitamos el codigo del chofer para buscar en el arraylist para obtener el objeto!!!
 		String codigoPais = sc.next();
-		Pais paises = buscarPais(codigoPais);
-		if(paises == null)
+		Pais pais = buscarPais(codigoPais);
+		if(pais == null)
 		{
 			System.out.println("El pais no existe");
 		}
 		else
 		{
-			destinoTuristico.setPais(paises);
+			destinoTuristico.setPais(pais);
 			destinos.add(destinoTuristico);
 			System.out.println("Se agrego el objeto pais....");
 		}
