@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import ar.edu.unju.fi.ejercicio18.model.DestinoTuristico;
 import ar.edu.unju.fi.ejercicio18.model.Pais;
-
+import ar.edu.unju.fi.model.Chofer;
 
 import java.util.Scanner;
 
@@ -52,7 +52,7 @@ public class Main {
 				
 			case 7: mostrarPaises();break;
 				
-			case 8:
+			case 8:mostrarDestinos();break;
 				
 			case 9:
 				
@@ -205,5 +205,26 @@ public class Main {
 	public static void mostrarPaises() {
 		System.out.println("-------------Lista de PAISES-----------");
 		paises.forEach(p->System.out.println(p));
+	}
+	
+	public static void mostrarDestinos()
+	{
+		DestinoTuristico destinoEncontrado = null;
+		System.out.println("Ingrese el codigo Pais: ");
+		String codigo = sc.next();
+		for (DestinoTuristico destino: destinos) {
+			if (destino.getPais().getCodigo()==codigo)
+			{
+				destinoEncontrado = destino;	
+				mostrarDestino(destino);
+			}
+		}
+		
+	}
+	
+	public static void mostrarDestino(DestinoTuristico destino)
+	{
+		System.out.println("DestinoTuristico [codigo=" + destino.getCodigo() + ", nombre=" + destino.getNombre() + ", precio=" + destino.getPrecio() + ", pais=" + destino.getPais()
+				+ ", cantidadDias=" + destino.getCantidadDias() + "]");
 	}
 }
