@@ -53,6 +53,13 @@ public class DestinoTuristico {
 	public void setCantidadDias(int cantidadDias) {
 		this.cantidadDias = cantidadDias;
 	}
+
+
+	@Override
+	public String toString() {
+		return "DestinoTuristico [codigo=" + codigo + ", nombre=" + nombre + ", precio=" + precio + ", pais=" + pais
+				+ ", cantidadDias=" + cantidadDias + "]";
+	}
 	
 	
 }

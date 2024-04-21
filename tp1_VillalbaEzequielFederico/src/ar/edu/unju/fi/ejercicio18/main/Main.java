@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.ejercicio18.main;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 
 import ar.edu.unju.fi.ejercicio18.model.DestinoTuristico;
@@ -28,9 +29,10 @@ public class Main {
 			System.out.println("3) Modificar el pais de un destino turistico");
 			System.out.println("4) Limpiar el ArrayList de destino turisticos");
 			System.out.println("5) Eliminar un destino turistico");
+			System.out.println("6) Mostrar todos los destinos ordenados por nombre");
 			System.out.println("7) Mostrar todos los paises");
-			System.out.println("8) Mostrar los destinos turisticos que pertenecen a un pais");
-			System.out.println("9) SALIR");
+			System.out.println("8) Mostrar los destinos turisticos que pertenecen a un pais (segun ingrese el usuario)");
+			System.out.println("9)SALIR");
 			System.out.println("=======================================");
 			System.out.println("Ingrese una opcion: ");
 			opcion = sc.nextInt();
@@ -46,7 +48,7 @@ public class Main {
 			
 			case 5:eliminarDestinoTuristico();break;
 				
-			case 6:
+			case 6:mostratDestinosPorNombre();break;
 				
 			case 7: 
 				
@@ -191,5 +193,12 @@ public class Main {
 			System.out.println("Lista de destinos vacias!!!");
 		}
 	}
+
 	
+	
+	public static void mostratDestinosPorNombre()
+	{
+		destinos.sort(Comparator.comparing(DestinoTuristico::getNombre));
+		destinos.forEach(nom->System.out.println(nom.toString()));
+	}
 }
