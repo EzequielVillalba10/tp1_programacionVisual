@@ -50,7 +50,7 @@ public class Main {
 				
 			case 6:mostratDestinosPorNombre();break;
 				
-			case 7: 
+			case 7: mostrarPaises();break;
 				
 			case 8:
 				
@@ -200,5 +200,10 @@ public class Main {
 	{
 		destinos.sort(Comparator.comparing(DestinoTuristico::getNombre));
 		destinos.forEach(nom->System.out.println(nom.toString()));
+	}
+	
+	public static void mostrarPaises() {
+		System.out.println("-------------Lista de PAISES-----------");
+		paises.forEach(p->System.out.println(p));
 	}
 }
