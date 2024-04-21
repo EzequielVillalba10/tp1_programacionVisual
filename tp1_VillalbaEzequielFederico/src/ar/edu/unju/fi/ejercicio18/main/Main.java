@@ -1,11 +1,11 @@
 package ar.edu.unju.fi.ejercicio18.main;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import ar.edu.unju.fi.ejercicio18.model.DestinoTuristico;
 import ar.edu.unju.fi.ejercicio18.model.Pais;
-import ar.edu.unju.fi.model.Chofer;
-import ar.edu.unju.fi.model.Taxi;
+
 
 import java.util.Scanner;
 
@@ -42,9 +42,9 @@ public class Main {
 				
 			case 3:modificarPaisDeDestino();break;
 				
-			case 4:limpiarArrayListDeDestinoTuristico();break;
+			case 4:destinos.clear();break;
 			
-			case 5:
+			case 5:eliminarDestinoTuristico();break;
 				
 			case 6:
 				
@@ -169,4 +169,27 @@ public class Main {
 		}
 		return destinoEncontrado;
 	}
+	
+	public static void eliminarDestinoTuristico()
+	{
+		System.out.println("Ingrese codigo de destino Turistico: ");
+		String codigo = sc.next();
+		Iterator<DestinoTuristico> iterator = destinos.iterator(); //paquete java.util
+		if(!destinos.isEmpty())
+		{
+		while (iterator.hasNext()) {
+			DestinoTuristico destino = iterator.next(); //devuelve el objeto taxi que esta en la lista, el primero que encuentre
+			if (destino.getCodigo().equals(codigo))
+			{
+				iterator.remove(); // elimina el elementoooooooo
+				System.out.println("Se el destino con el codigo: "+codigo);
+			}
+		}
+		}
+		else
+		{
+			System.out.println("Lista de destinos vacias!!!");
+		}
+	}
+	
 }
