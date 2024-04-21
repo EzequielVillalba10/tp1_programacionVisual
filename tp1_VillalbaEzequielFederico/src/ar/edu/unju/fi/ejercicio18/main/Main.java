@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import ar.edu.unju.fi.ejercicio18.model.DestinoTuristico;
 import ar.edu.unju.fi.ejercicio18.model.Pais;
-import ar.edu.unju.fi.model.Chofer;
+
 
 import java.util.Scanner;
 
@@ -54,10 +54,10 @@ public class Main {
 				
 			case 8:mostrarDestinos();break;
 				
-			case 9:
+			case 9:System.out.println("SALIENDO DEL PROGRAMA");break;
 				
 			default:
-				
+				System.out.println("opcion incorrecta....");
 				
 			}
 			
